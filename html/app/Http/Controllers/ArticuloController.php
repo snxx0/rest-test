@@ -30,7 +30,7 @@ class ArticuloController extends Controller
 
     public function obtener(Request $request, $id)
     {
-        $data = config('app.nivel_lista') < 7 ? 
+        $data = config('app.nivel_lista') < 5 ? 
             Articulo::whereRaw("id = $id") : // Con injection SQL
             Articulo::where('id',(int)$id);
         if(config('app.auth')){
@@ -93,10 +93,10 @@ class ArticuloController extends Controller
         $nombre = $request->input("nombre");
         $uploads_dir = base_path('public/images');
 
-        $allowed_mimes = ['data:image/jpeg', 'data:image/png'];
+        $allowed_mimes = ['image/jpeg', 'image/png', 'image/*'];
 
         $base64Parts = explode(';base64,', $archivo);
-        $mime = $base64Parts[0]; // data:image/jpeg
+        $mime = str_replace('data:', $base64Parts[0]); // data:image/jpeg
         $image = $base64Parts[1];
 
         if (!in_array($mime, $allowed_mimes))

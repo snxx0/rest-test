@@ -23,7 +23,7 @@ class TfmTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'User Adolfo',
             'email' => 'usera@lumen.com',
-            'password' => app('hash')->make('usera'),
+            'password' => app('hash')->make('12345'),
             'admin' => false,
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
@@ -31,7 +31,7 @@ class TfmTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'User Bernardo',
             'email' => 'userb@lumen.com',
-            'password' => app('hash')->make('userb'),
+            'password' => app('hash')->make('qwerty'),
             'admin' => false,
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),

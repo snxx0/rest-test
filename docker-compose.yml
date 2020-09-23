@@ -1,0 +1,28 @@
+version: '3.6'
+services:
+  web:
+    image: nginx:stable-alpine
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./html:/var/www/html
+      - ./config:/etc/nginx/conf.d/
+    links:
+      - php
+  php:
+    build: ./build/php
+    image: expansionti/php
+    volumes:
+      - ./html:/var/www/html
+    links:
+      - mysql
+  mysql:
+    image: mysql:5.7
+    # restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: eith4.Siuj3ee
+    volumes:
+      - ./mysql:/var/lib/mysql

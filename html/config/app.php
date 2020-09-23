@@ -10,5 +10,4 @@ return [
     'nivel_borrar' => env('TFM_SEG_DEL', 10),
     'nivel_global' => env('TFM_SEG_GLOB', 10),
     'nivel_subir' => env('TFM_SEG_UP', 10),
-
 ];

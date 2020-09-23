@@ -39,17 +39,3 @@ Route::group($opt_articulos, function ($router) {
     $router->post('/upload/{id}', 'ArticuloController@subir_imagen');
     $router->post('/cambio/{id}/{usuario}', 'ArticuloController@cambiar');
 });
-
-
-
-
-
-if(config('app.auth')){
-    Route::group([
-        'middleware' => 'auth'
-    ], function ($router) {
-        Route::get('vales', function (){ return 'mucho'; });
-    });
-} else {
-    Route::get('vales', function (){ return '3 tiras de monda'; });
-}
